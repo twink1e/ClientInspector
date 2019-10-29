@@ -1,0 +1,224 @@
+{
+  "customers": [
+    {
+      "id": "0af15091-f9a4-3daf-bd4a-f457c549b4b2",
+      "status": "ACTIVE",
+      "createdAt": "2019-09-02T11:29:43.819+08:00[Asia/Singapore]",
+      "email": "test-fiywg@endowus.com",
+      "personalDetails": {
+        "salutation": "MR",
+        "firstName": "Simon",
+        "lastName": "Craft",
+        "legalName": "Craft Simon",
+        "gender": "MALE",
+        "dob": "1987-06-16",
+        "nationality": "GB"
+      },
+      "phoneDetails": {
+        "countryCode": 62,
+        "number": 22223333
+      }
+    },
+    {
+      "id": "122517af-429c-374b-9279-dd8691788662",
+      "status": "ACTIVE",
+      "createdAt": "2019-09-11T10:37:40.196+08:00[Asia/Singapore]",
+      "email": "test-cajuu@endowus.com",
+      "personalDetails": {
+        "salutation": "MR",
+        "firstName": "TOOQY",
+        "lastName": "QROGB25Z",
+        "legalName": "LegalName",
+        "gender": "MALE",
+        "dob": "1985-02-02",
+        "nationality": "Singapore"
+      },
+      "phoneDetails": {
+        "countryCode": 65,
+        "number": 97506247
+      }
+    },
+    {
+      "id": "54ffd1ff-f043-36b1-b93c-da8ddcee1d92",
+      "status": "ACTIVE",
+      "createdAt": "2019-08-13T17:11:26.22+08:00[Asia/Singapore]",
+      "email": "test-hwart@endowus.com",
+      "personalDetails": {
+        "salutation": "MR",
+        "firstName": "FD81H22",
+        "lastName": "EBHN0TUD",
+        "legalName": "LegalName",
+        "gender": "FEMALE",
+        "dob": "1985-02-02",
+        "nationality": "Singapore"
+      },
+      "phoneDetails": {
+        "countryCode": 65,
+        "number": 97506212
+      }
+    },
+    {
+      "id": "1e4ddf59-cc9b-353e-be8e-6602b67f76dd",
+      "status": "ACTIVE",
+      "createdAt": "2019-09-24T10:43:30.97+08:00[Asia/Singapore]",
+      "email": "test-fgmbj@endowus.com",
+      "personalDetails": {
+        "salutation": "MR",
+        "firstName": "TFLWY",
+        "lastName": "YKJVLKOY",
+        "legalName": "LegalName",
+        "gender": "MALE",
+        "dob": "1985-02-02",
+        "nationality": "Singapore"
+      },
+      "phoneDetails": {
+        "countryCode": 65,
+        "number": 97506247
+      }
+    },
+    {
+      "id": "1d594e39-e994-362b-afd0-84d7fffd6aa1",
+      "status": "ACTIVE",
+      "createdAt": "2019-09-27T11:06:36.06+08:00[Asia/Singapore]",
+      "email": "test-y83li@endowus.com",
+      "personalDetails": {
+        "salutation": "MR",
+        "firstName": "QNUGU",
+        "lastName": "B89WMKV7",
+        "legalName": "LegalName",
+        "gender": "MALE",
+        "dob": "1985-02-02",
+        "nationality": "Singapore"
+      }
+    },
+    {
+      "id": "42188d35-de2e-3f5d-b197-555b58046de5",
+      "status": "REGISTERING",
+      "createdAt": "2019-08-02T14:28:04.555+08:00[Asia/Singapore]",
+      "email": "test+abcdefhji@endowus.com"
+    },
+    {
+      "id": "6743ca90-c78d-3389-aa19-8edf38172d09",
+      "status": "REGISTERING",
+      "createdAt": "2019-08-05T10:35:48.136+08:00[Asia/Singapore]",
+      "email": "hello21@endowus.com",
+      "personalDetails": {
+        "salutation": "MR",
+        "firstName": "ssedd",
+        "lastName": "basic",
+        "legalName": "basic ssedd",
+        "gender": "FEMALE",
+        "dob": "1999-01-12",
+        "nationality": "AF"
+      },
+      "phoneDetails": {
+        "countryCode": 65,
+        "number": 88888888
+      }
+    }
+  ],
+  "goal_0af15091-f9a4-3daf-bd4a-f457c549b4b2": {
+    "goalId": "91968ce6-459e-4aeb-abc6-433c32f5c88e",
+    "customerId": "0af15091-f9a4-3daf-bd4a-f457c549b4b2",
+    "createdAt": "2019-09-02T11:29:44.307+08:00[Asia/Singapore]",
+    "name": "Goal Code Name [AK0Y]",
+    "targetStockRatio": 0.2,
+    "status": "ACTIVE",
+    "plans": [
+      {
+        "customerId": "0af15091-f9a4-3daf-bd4a-f457c549b4b2",
+        "goalId": "91968ce6-459e-4aeb-abc6-433c32f5c88e",
+        "planId": "ea7d5e2c-ba98-332e-91df-f0438fd1eb9a",
+        "createdAt": "2019-09-02T11:32:23.613+08:00[Asia/Singapore]",
+        "planCcy": "SGD",
+        "initialInvestmentAmount": 555,
+        "modelPortfolioName": "20% Stocks | 80% Bonds"
+      },
+      {
+        "customerId": "0af15091-f9a4-3daf-bd4a-f457c549b4b2",
+        "goalId": "91968ce6-459e-4aeb-abc6-433c32f5c88e",
+        "planId": "42191712-8d94-32be-be5e-4180513e971b",
+        "createdAt": "2019-09-02T11:29:44.499+08:00[Asia/Singapore]",
+        "planCcy": "SGD",
+        "initialInvestmentAmount": 0,
+        "recurringInvestmentSchedule": {
+          "interval": "MONTHLY",
+          "startingFrom": "2019-09-15",
+          "amount": 500
+        },
+        "modelPortfolioName": "20% Stocks | 80% Bonds"
+      }
+    ]
+  },
+  "goal_1d594e39-e994-362b-afd0-84d7fffd6aa1": {
+    "goalId": "615e28c8-9b68-4258-89ef-180bcce328f3",
+    "customerId": "1d594e39-e994-362b-afd0-84d7fffd6aa1",
+    "createdAt": "2019-09-27T11:06:36.552+08:00[Asia/Singapore]",
+    "name": "Goal Code Name [ZPR2]",
+    "targetStockRatio": 0.6,
+    "status": "ACTIVE",
+    "plans": [
+      {
+        "customerId": "1d594e39-e994-362b-afd0-84d7fffd6aa1",
+        "goalId": "615e28c8-9b68-4258-89ef-180bcce328f3",
+        "planId": "a9ba7c48-78c7-3527-ac7b-0426c3fbe06a",
+        "createdAt": "2019-09-27T11:06:37.786+08:00[Asia/Singapore]",
+        "planCcy": "SGD",
+        "initialInvestmentAmount": 0,
+        "recurringInvestmentSchedule": {
+          "interval": "MONTHLY",
+          "startingFrom": "2019-10-15",
+          "amount": 500
+        },
+        "modelPortfolioName": "60% Stocks | 40% Bonds"
+      }
+    ]
+  },
+  "goal_1e4ddf59-cc9b-353e-be8e-6602b67f76dd": {
+    "goalId": "d96fc565-c092-4c0c-b9da-e8d7826ca400",
+    "customerId": "1e4ddf59-cc9b-353e-be8e-6602b67f76dd",
+    "createdAt": "2019-09-24T10:43:32.246+08:00[Asia/Singapore]",
+    "name": "Goal Code Name [WB4Y]",
+    "targetStockRatio": 1,
+    "status": "ACTIVE",
+    "plans": [
+      {
+        "customerId": "1e4ddf59-cc9b-353e-be8e-6602b67f76dd",
+        "goalId": "d96fc565-c092-4c0c-b9da-e8d7826ca400",
+        "planId": "74c64277-d6cc-3aba-866b-5bc049bdf985",
+        "createdAt": "2019-09-24T10:43:33.642+08:00[Asia/Singapore]",
+        "planCcy": "SGD",
+        "initialInvestmentAmount": 0,
+        "recurringInvestmentSchedule": {
+          "interval": "MONTHLY",
+          "startingFrom": "2019-10-15",
+          "amount": 500
+        },
+        "modelPortfolioName": "100% Stocks | 0% Bonds"
+      }
+    ]
+  },
+  "goal_122517af-429c-374b-9279-dd8691788662": {
+    "goalId": "2f39e4ce-0ac8-411e-af72-caa1c7d1a598",
+    "customerId": "122517af-429c-374b-9279-dd8691788662",
+    "createdAt": "2019-09-11T10:37:40.76+08:00[Asia/Singapore]",
+    "name": "Goal Code Name [IJTG]",
+    "targetStockRatio": 0,
+    "status": "ACTIVE",
+    "plans": [
+      {
+        "customerId": "122517af-429c-374b-9279-dd8691788662",
+        "goalId": "2f39e4ce-0ac8-411e-af72-caa1c7d1a598",
+        "planId": "ba090941-7e4f-3cfe-bd8b-55eed5f409dc",
+        "createdAt": "2019-09-11T10:37:40.957+08:00[Asia/Singapore]",
+        "planCcy": "SGD",
+        "initialInvestmentAmount": 0,
+        "recurringInvestmentSchedule": {
+          "interval": "MONTHLY",
+          "startingFrom": "2019-09-15",
+          "amount": 500
+        }
+      }
+    ]
+  }
+}

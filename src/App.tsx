@@ -1,10 +1,14 @@
 import * as React from 'react';
 import './App.css';
+import APIService from './service';
 
 import logo from './logo.svg';
 
 class App extends React.Component {
   public render() {
+    APIService.getCustomerList()
+    .then(res => console.log(res))
+    .catch(e => console.log(e));
     return (
       <div className="App">
         <header className="App-header">
