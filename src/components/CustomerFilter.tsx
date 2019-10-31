@@ -30,23 +30,23 @@ export default function Filter() {
   const classes = useStyles();
 
   return (
-    <form className={classes.container} noValidate autoComplete="off">
+    <form className={classes.container} noValidate autoComplete='off'>
       <TextField
-          id="name"
-          label="Name"
-          type="search"
+          id='name'
+          label='Name'
+          type='search'
           className={classes.textField}
-          margin="normal"
+          margin='normal'
         />
         <TextField
-          id="email"
-          label="Email"
-          type="search"
+          id='email'
+          label='Email'
+          type='search'
           className={classes.textField}
-          margin="normal"
+          margin='normal'
         />
-        <FormControl component="fieldset" className={classes.formControl}>
-          <FormLabel component="legend">Status</FormLabel>
+        <FormControl component='fieldset' className={classes.formControl}>
+          <FormLabel component='legend'>Status</FormLabel>
           <FormGroup>
           {Object.keys(model.CustomerStatus).map (key =>
             <FormControlLabel
