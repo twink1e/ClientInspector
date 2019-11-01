@@ -1,7 +1,8 @@
 import * as React from 'react';
 import APIService from '../service';
 import { Goal, Plan } from '../model';
-import { useHistory } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom'
+import { History } from 'history';
 
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -38,6 +39,7 @@ const styles = (theme: Theme) => createStyles({
 
 type Props = {
   id: string
+  history: History
 } & WithStyles<typeof styles>;
 
 type State = {
@@ -90,7 +92,7 @@ class CustomerDetail extends React.Component<Props, State> {
   }
 
   routeToList = () => {
-    useHistory().push('/');
+    this.props.history.push('/');
   }
 
   plansView = (goal: Goal) => {

@@ -10,7 +10,7 @@ class App extends React.Component {
       <Switch>
       <Route path="/customer/:id"
         render={route =>
-          <CustomerDetail id={route.match.params.id} /> }/>
+          <CustomerDetail id={route.match.params.id} history={route.history}/> }/>
       <Route path="/">
         <CustomerListView />
       </Route>
