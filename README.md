@@ -1,6 +1,6 @@
 ```sh
 npm install
-npm run run start
+npm run start
 ```
 Web app at http://localhost:3000/
 
