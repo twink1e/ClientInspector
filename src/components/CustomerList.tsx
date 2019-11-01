@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { CustomerListState } from '../redux/reducers';
 import * as selectors from '../redux/selector';
+import { Customer } from '../model';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -44,10 +45,10 @@ function CustomerList({ customers }: Props) {
           {customers.map(customer => (
             <TableRow key={customer.id}>
               <TableCell component="th" scope="row">
-                {"customer.personalDetails.firstName)"}
+                {personalDetailsString(customer, 'firstName')}
               </TableCell>
-              <TableCell>{"customer.personalDetails.lastName"}</TableCell>
-              <TableCell>{"customer.personalDetails.legalName"}</TableCell>
+              <TableCell>{personalDetailsString(customer, 'lastName')}</TableCell>
+              <TableCell>{personalDetailsString(customer, 'legalName')}</TableCell>
               <TableCell>{customer.email}</TableCell>
               <TableCell>{customer.status}</TableCell>
             </TableRow>
@@ -61,3 +62,12 @@ export default connect(
   mapStateToProps,
   {}
 )(CustomerList);
+
+// helpers
+const personalDetailsString = (customer: Customer, field: string) => {
+  const details = customer.personalDetails;
+  if (details == undefined) {
+    return '';
+  }
+  return details[field];
+}
