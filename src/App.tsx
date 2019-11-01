@@ -1,15 +1,22 @@
 import * as React from 'react';
-import './App.css';
-import logo from './logo.svg';
+import {
+  Switch,
+  Route
+} from "react-router-dom";
+import CustomerListView from './components/CustomerListView';
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+      <div>
+      <Switch>
+      <Route path="/customer/:id">
+        <h1>haha</h1>
+      </Route>
+      <Route path="/">
+        <CustomerListView />
+      </Route>
+    </Switch>
       </div>
     );
   }
