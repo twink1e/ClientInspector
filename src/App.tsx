@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Switch, Route } from "react-router-dom";
-import CustomerListView from './components/CustomerListView';
+import CustomerList from './components/CustomerList';
 import CustomerDetail from './components/CustomerDetail';
 
 class App extends React.Component {
@@ -12,7 +12,7 @@ class App extends React.Component {
         render={route =>
           <CustomerDetail id={route.match.params.id} history={route.history}/> }/>
       <Route path="/">
-        <CustomerListView />
+        <CustomerList />
       </Route>
     </Switch>
       </div>

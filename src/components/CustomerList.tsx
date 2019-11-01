@@ -1,75 +1,67 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { CustomerListState } from '../redux/reducers';
-import * as selectors from '../redux/selector';
+import CustomerFilter from './CustomerFilter';
+import CustomerTable from './CustomerTable';
+import APIService from '../service';
 import { Customer } from '../model';
-import { useHistory } from 'react-router-dom';
+import { setCustomers } from '../redux/actions';
 
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
+import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
-const mapStateToProps = (state: CustomerListState) => ({
-  customers: selectors.getFilteredCustomers(state)
-});
-
-type Props = ReturnType<typeof mapStateToProps>;
-
-const useStyles = makeStyles({
-  root: {
-    width: '100%',
-    overflowX: 'auto',
+const styles = (theme: Theme) => createStyles({
+  appBar: {
+    alignItems: 'center',
+  },
+  filter: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
   },
   table: {
-    minWidth: 650,
-  },
+    marginLeft: 50,
+    marginRight: 50,
+    marginTop: 50,
+  }
 });
 
-function CustomerList({ customers }: Props) {
-  const classes = useStyles();
-  const history = useHistory();
-  const routeToDetail = (id: string) => {
-    history.push(`/customer/${id}`);
+type Props = {
+  setCustomers: (customers: Customer[]) => void
+} & WithStyles<typeof styles>;
+
+class CustomerList extends React.Component<Props> {
+  componentDidMount() {
+    APIService.getCustomerList()
+    .then(res => this.props.setCustomers(res));
   }
-  return (
-    <Table className={classes.table}>
-      <TableHead>
-        <TableRow>
-          <TableCell>First Name</TableCell>
-          <TableCell>Last Name</TableCell>
-          <TableCell>Legal Name</TableCell>
-          <TableCell>Email</TableCell>
-          <TableCell>Status</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {customers.map(customer => (
-          <TableRow key={customer.id} onClick={()=>routeToDetail(customer.id)}>
-            <TableCell>{personalDetailsString(customer, 'firstName')}</TableCell>
-            <TableCell>{personalDetailsString(customer, 'lastName')}</TableCell>
-            <TableCell>{personalDetailsString(customer, 'legalName')}</TableCell>
-            <TableCell>{customer.email}</TableCell>
-            <TableCell>{customer.status}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  );
+
+  render() {
+    const classes = this.props.classes;
+
+    return (
+      <div>
+        <AppBar position="static" className={classes.appBar}>
+          <Toolbar>
+            <Typography variant="h6">
+              Customer List
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <div className={classes.filter}>
+          <CustomerFilter/>
+        </div>
+        <div className={classes.table}>
+          <CustomerTable/>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default connect(
-  mapStateToProps,
-  {}
-)(CustomerList);
-
-// helpers
-const personalDetailsString = (customer: Customer, field: string) => {
-  const details = customer.personalDetails;
-  if (details == undefined) {
-    return '';
-  }
-  return details[field];
-}
+  null,
+  { setCustomers }
+)(withStyles(styles)(CustomerList));
