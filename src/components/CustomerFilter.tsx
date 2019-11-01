@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import * as model from '../model';
+
+import { setNameFilter, setEmailFilter, setStatusFilter } from '../redux/actions';
 
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -7,34 +10,49 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
-    textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 200,
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-  }),
-);
+const styles = (theme: Theme) => createStyles({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+  formControl: {
+    margin: theme.spacing(3),
+  },
+});
 
-export default function Filter() {
-  const classes = useStyles();
+const dispatchProps = {
+  setName: setNameFilter,
+  setEmail: setEmailFilter,
+  setStatus: setStatusFilter
+};
 
-  return (
+type Props = {
+  setName: (name: string) => void,
+  setEmail: (email: string) => void,
+  setStatus: (status: model.CustomerStatus, checked: boolean) => void
+} & WithStyles<typeof styles>;
+
+type State = {};
+
+class Filter extends React.Component<Props, State> {
+
+  render() {
+    const { classes, setName, setEmail, setStatus } = this.props;
+
+    return(
     <form className={classes.container} noValidate autoComplete='off'>
       <TextField
           id='name'
           label='Name'
           type='search'
+          onChange={e => setName(e.target.value)}
           className={classes.textField}
           margin='normal'
         />
@@ -42,6 +60,7 @@ export default function Filter() {
           id='email'
           label='Email'
           type='search'
+          onChange={e => setEmail(e.target.value)}
           className={classes.textField}
           margin='normal'
         />
@@ -50,7 +69,7 @@ export default function Filter() {
           <FormGroup>
           {Object.keys(model.CustomerStatus).map (key =>
             <FormControlLabel
-              control={<Checkbox/>}
+              control={<Checkbox defaultChecked={true} onChange={ e => setStatus(model.CustomerStatus[key], e.target.checked)}/>}
               label={ capitalize(model.CustomerStatus[key]) }
               key = {key}
             />
@@ -58,8 +77,13 @@ export default function Filter() {
           </FormGroup>
         </FormControl>
     </form>
-  );
+  );}
 }
+
+export default connect(
+  null,
+  dispatchProps
+)(withStyles(styles)(Filter));
 
 // helpers
 function capitalize(str: String) {

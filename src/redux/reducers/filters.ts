@@ -16,13 +16,24 @@ const initialState: FilterState = {
 };
 
 const name = createReducer(initialState.name)
-  .handleAction(SET_NAME_FILTER, (state, action) => action.payload);
+  .handleAction(SET_NAME_FILTER, (state, action) => {
+    console.log(state, action);
+    return action.payload.name;
+  });
 
 const email = createReducer(initialState.email)
-  .handleAction(SET_EMAIL_FILTER, (state, action) => action.payload);
+  .handleAction(SET_EMAIL_FILTER, (state, action) => action.payload.email);
 
 const statuses = createReducer(initialState.statuses)
-  .handleAction(SET_STATUS_FILTER, (state, action) => action.payload);
+  .handleAction(SET_STATUS_FILTER, (state, action) =>{
+    const status = action.payload.status;
+    console.log(state, action,status);
+    if (action.payload.checked) {
+      return state.concat(status);
+    } else {
+      return state.filter(i => i !== status);
+    }
+  });
 
 export default combineReducers({
   name,
