@@ -4,7 +4,7 @@ import CustomerFilter from './CustomerFilter';
 import CustomerTable from './CustomerTable';
 import APIService from '../service';
 import { Customer } from '../model';
-import { setCustomers } from '../redux/actions';
+import { setCustomers, reset } from '../redux/actions';
 
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -30,10 +30,12 @@ const styles = (theme: Theme) => createStyles({
 
 type Props = {
   setCustomers: (customers: Customer[]) => void
+  reset: () => void
 } & WithStyles<typeof styles>;
 
 class CustomerList extends React.Component<Props> {
   componentDidMount() {
+    this.props.reset()
     APIService.getCustomerList()
     .then(res => this.props.setCustomers(res));
   }
@@ -63,5 +65,5 @@ class CustomerList extends React.Component<Props> {
 
 export default connect(
   null,
-  { setCustomers }
+  { setCustomers, reset }
 )(withStyles(styles)(CustomerList));

@@ -1,6 +1,6 @@
 import { createReducer } from 'typesafe-actions';
 import { Customer } from '../../model';
-import { SET_CUSTOMERS } from '../actionTypes';
+import { setCustomers } from '../actions';
 
 export type CustomersState = Readonly<{
   customers: ReadonlyArray<Customer>;
@@ -11,7 +11,4 @@ const initialState: CustomersState = {
 };
 
 export default createReducer(initialState.customers)
-  .handleAction(SET_CUSTOMERS, (state, action) => {
-    console.log(action.payload.customers);
-    return action.payload.customers;
-  });
+  .handleAction(setCustomers, (state, action) => action.payload);

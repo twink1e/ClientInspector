@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { createReducer } from 'typesafe-actions';
 import { CustomerStatus } from '../../model';
-import { SET_NAME_FILTER, SET_EMAIL_FILTER, SET_STATUS_FILTER, RESET } from '../actionTypes';
+import { setEmailFilter, setStatusFilter, setNameFilter, reset } from '../actions';
 
 export type FilterState = Readonly<{
   name: string;
@@ -16,16 +16,16 @@ const initialState: FilterState = {
 };
 
 const name = createReducer(initialState.name)
-  .handleAction(RESET, (state, action) => initialState.name)
-  .handleAction(SET_NAME_FILTER, (state, action) => action.payload.name);
+  .handleAction(setNameFilter, (state, action) => action.payload)
+  .handleAction(reset, (state, action) => initialState.name);
 
 const email = createReducer(initialState.email)
-  .handleAction(RESET, (state, action) => initialState.email)
-  .handleAction(SET_EMAIL_FILTER, (state, action) => action.payload.email);
+  .handleAction(setEmailFilter, (state, action) => action.payload)
+  .handleAction(reset, (state, action) => initialState.email);
 
 const statuses = createReducer(initialState.statuses)
-  .handleAction(RESET, (state, action) => initialState.statuses)
-  .handleAction(SET_STATUS_FILTER, (state, action) => {
+  .handleAction(reset, (state, action) => initialState.statuses)
+  .handleAction(setStatusFilter, (state, action) => {
     const status = action.payload.status;
     if (action.payload.checked) {
       return state.concat(status);

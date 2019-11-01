@@ -8,9 +8,7 @@ const goalUrl = (id: String) => `${baseUrl}/goal_${id}`;
 export default class APIService {
   public static async getCustomerList(): Promise<model.Customer[]> {
     try {
-      const customers = (await axios.get(customerListUrl)).data;
-      console.log(customers);
-      return customers;
+      return (await axios.get(customerListUrl)).data;
     } catch (error) {
       console.error(error);
       return [];
@@ -19,9 +17,7 @@ export default class APIService {
 
   public static async getCustomerGoal(customerId: String): Promise<model.Goal|undefined> {
     try {
-      const goal = (await axios.get(goalUrl(customerId))).data;
-      console.log(goal);
-      return goal;
+      return (await axios.get(goalUrl(customerId))).data;
     } catch (error) {
       console.error(error);
       return undefined;
