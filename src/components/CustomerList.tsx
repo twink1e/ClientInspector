@@ -36,29 +36,27 @@ function CustomerList({ customers }: Props) {
   }
   return (
     <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>First Name</TableCell>
-            <TableCell>Last Name</TableCell>
-            <TableCell>Legal Name</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Status</TableCell>
+      <TableHead>
+        <TableRow>
+          <TableCell>First Name</TableCell>
+          <TableCell>Last Name</TableCell>
+          <TableCell>Legal Name</TableCell>
+          <TableCell>Email</TableCell>
+          <TableCell>Status</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {customers.map(customer => (
+          <TableRow key={customer.id} onClick={()=>routeToDetail(customer.id)}>
+            <TableCell>{personalDetailsString(customer, 'firstName')}</TableCell>
+            <TableCell>{personalDetailsString(customer, 'lastName')}</TableCell>
+            <TableCell>{personalDetailsString(customer, 'legalName')}</TableCell>
+            <TableCell>{customer.email}</TableCell>
+            <TableCell>{customer.status}</TableCell>
           </TableRow>
-        </TableHead>
-        <TableBody>
-          {customers.map(customer => (
-            <TableRow key={customer.id} onClick={()=>routeToDetail(customer.id)}>
-              <TableCell component="th" scope="row">
-                {personalDetailsString(customer, 'firstName')}
-              </TableCell>
-              <TableCell>{personalDetailsString(customer, 'lastName')}</TableCell>
-              <TableCell>{personalDetailsString(customer, 'legalName')}</TableCell>
-              <TableCell>{customer.email}</TableCell>
-              <TableCell>{customer.status}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+        ))}
+      </TableBody>
+    </Table>
   );
 }
 
