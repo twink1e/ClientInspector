@@ -47,11 +47,12 @@ class CustomerDetail extends React.Component<Props, State> {
   componentDidMount() {
     APIService.getCustomerGoal(this.props.id)
     .then((res: Goal | undefined) =>
-    this.setState(state => ({
-      goal: res,
-      loading: false
-      })
-    ));
+      this.setState(state => ({
+        goal: res,
+        loading: false
+        })
+      )
+    );
   }
 
   render() {

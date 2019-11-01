@@ -24,7 +24,7 @@ const GoalView = ({ goal }: Props) => {
   return (
     <div>
     <Typography className={classes.summary}>
-      Name: {goal.name}
+      Goal name: {goal.name}
       <br />
       Created at: {goal.createdAt}
       <br />
