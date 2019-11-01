@@ -12,6 +12,9 @@ export const getFilteredCustomers = (state: CustomerListState): Customer[] => {
 
 // helpers
 const containsName = (customer: Customer, name: string): boolean => {
+  if (name == '') {
+    return true;
+  }
   const details = customer.personalDetails;
   if (details == undefined) {
     return false;
@@ -22,8 +25,8 @@ const containsName = (customer: Customer, name: string): boolean => {
 }
 
 const containsStatus = (customer: Customer, statuses: ReadonlyArray<CustomerStatus>): boolean => {
-  for (const status in statuses) {
-    if (customer.status == status) {
+  for (const status of statuses) {
+    if (customer.status === status) {
       return true;
     }
   }
