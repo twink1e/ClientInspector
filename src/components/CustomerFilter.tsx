@@ -41,7 +41,7 @@ type Props = {
 
 type State = {};
 
-class Filter extends React.Component<Props, State> {
+class CustomerFilter extends React.Component<Props, State> {
 
   render() {
     const { classes, setName, setEmail, setStatus } = this.props;
@@ -83,7 +83,7 @@ class Filter extends React.Component<Props, State> {
 export default connect(
   null,
   dispatchProps
-)(withStyles(styles)(Filter));
+)(withStyles(styles)(CustomerFilter));
 
 // helpers
 function capitalize(str: String) {

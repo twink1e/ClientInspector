@@ -11,4 +11,7 @@ const initialState: CustomersState = {
 };
 
 export default createReducer(initialState.customers)
-  .handleAction(SET_CUSTOMERS, (state, action) => action.payload);
+  .handleAction(SET_CUSTOMERS, (state, action) => {
+    console.log(action.payload.customers);
+    return action.payload.customers;
+  });
