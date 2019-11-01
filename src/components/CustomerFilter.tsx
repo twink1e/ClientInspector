@@ -39,9 +39,7 @@ type Props = {
   setStatus: (status: model.CustomerStatus, checked: boolean) => void
 } & WithStyles<typeof styles>;
 
-type State = {};
-
-class CustomerFilter extends React.Component<Props, State> {
+class CustomerFilter extends React.Component<Props> {
 
   render() {
     const { classes, setName, setEmail, setStatus } = this.props;
@@ -86,6 +84,4 @@ export default connect(
 )(withStyles(styles)(CustomerFilter));
 
 // helpers
-function capitalize(str: String) {
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}
+const capitalize = (str: String) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
