@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { CustomerListState } from '../redux/reducers';
 import * as selectors from '../redux/selector';
 import { Customer } from '../model';
+import { useHistory } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -29,7 +30,10 @@ const useStyles = makeStyles({
 
 function CustomerList({ customers }: Props) {
   const classes = useStyles();
-
+  const history = useHistory();
+  const routeToDetail = (id: string) => {
+    history.push(`/customer/${id}`);
+  }
   return (
     <Table className={classes.table}>
         <TableHead>
@@ -43,7 +47,7 @@ function CustomerList({ customers }: Props) {
         </TableHead>
         <TableBody>
           {customers.map(customer => (
-            <TableRow key={customer.id}>
+            <TableRow key={customer.id} onClick={()=>routeToDetail(customer.id)}>
               <TableCell component="th" scope="row">
                 {personalDetailsString(customer, 'firstName')}
               </TableCell>
